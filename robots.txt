@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://github.com/epath2c/shuyahu-blog/sitemap-index.xml
+Sitemap: https://epath2c.github.io/shuyahu-blog/sitemap-index.xml
