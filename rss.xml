@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Shuya Hu</title><description>A coder-ready Astro blog theme with 59 of your favorite color schemes to choose from</description><link>https://multiterm.stelclementine.com</link><item><title>Deploy Java Server to Railway</title><link>https://multiterm.stelclementine.com/posts/deploy-java-server-to-railway</link><guid isPermaLink="true">https://multiterm.stelclementine.com/posts/deploy-java-server-to-railway</guid><description>Steps to take to build the Next.js web app into the Java server and deploy the server to Railway.</description><pubDate>Thu, 03 Jul 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Build the Next.js Web Application&lt;/h2&gt;
+&lt;p&gt;The Next.js application file structure is as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;root/
+├── dist/
+├── node_modules/
+├── public/
+├── src/
+├── index.html
+├── package.json
+└── ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The Java server folder structure is as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;root/
+├── HELP.md
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+├── Procfile
+├── src
+│   ├── main
+│   │   ├── java/
+│   │   └── resources
+│   │       ├── application.properties
+│   │       ├── static
+│   │       │   ├── assets
+│   │       │   │   ├── index-Bf3q5hAT.js
+│   │       │   │   ├── index-Dw7cwMGM.css
+│   │       │   │   ├── logo-Brnaa614.png
+│   │       │   │   └── logo-s-CtewNW4Z.png
+│   │       │   └── vite.svg
+│   │       └── templates
+│   │           └── index.html
+│   └── test/
+└── target/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Under the web application project root folder run &lt;code&gt;npm run build&lt;/code&gt;, the generated static JavaScript and HTML files will be stored under &lt;code&gt;dist&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Next, copy &lt;code&gt;dist/assets&lt;/code&gt; under Java server source code directory &lt;code&gt;resources/static&lt;/code&gt;, and copy &lt;code&gt;index.html&lt;/code&gt; under &lt;code&gt;resources/templates&lt;/code&gt; (Don&apos;t forget to delete the old ones.)&lt;/p&gt;
+&lt;h2&gt;Build &lt;code&gt;jar&lt;/code&gt; File&lt;/h2&gt;
+&lt;p&gt;Inside the root folder (where your &lt;code&gt;mvnw&lt;/code&gt; file exists), run &lt;code&gt;./mvnw clean package -DskipTests&lt;/code&gt;. If you are using Eclipse, run &lt;code&gt;maven verify&lt;/code&gt;. This will generate a &lt;code&gt;jar&lt;/code&gt; file under &lt;code&gt;target&lt;/code&gt; directory.&lt;/p&gt;
+&lt;h2&gt;Deploy &lt;code&gt;jar&lt;/code&gt; File to Railway&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;Procfile&lt;/code&gt; is the script for railway. Inside the file, we have&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;web: java -jar target/your_app_name-0.0.1-SNAPSHOT.jar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Under the root directory, run &lt;code&gt;railway up&lt;/code&gt;, then follow the instructions. (Assuming you already installed railway CLI on your machine.)&lt;/p&gt;
+</content:encoded><author>Katy Kookaburra</author></item></channel></rss>
